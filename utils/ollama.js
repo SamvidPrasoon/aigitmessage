@@ -18,20 +18,16 @@ async function callOllama(prompt) {
     // no auth by default for local Ollama
   });
 
+  //error
   if (!res.ok) {
     const txt = await res.text().catch(() => "<non-text>");
     throw new Error(`Ollama error ${res.status}: ${txt}`);
   }
 
   const json = await res.json();
-  // Ollama output shapes vary by version. Try common fields:
+  // Ollama output shapes vary by version. Try common fields: taken from net
   const maybe =
-    json.response ??
-    json.output?.[0]?.content ??
-    json.choices?.[0]?.message?.content ??
-    json.choices?.[0]?.text ??
-    json.output ??
-    json;
+    json.response ?? json.output?.[0]?.content ?? json.output ?? json;
 
   return typeof maybe === "string" ? maybe : JSON.stringify(maybe);
 }

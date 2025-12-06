@@ -13,6 +13,10 @@ async function main() {
   // Git passes the commit message file path as arg #1.
   const commitMsgFile =
     process.argv[2] || path.join(process.cwd(), ".git", "COMMIT_EDITMSG");
+  if (process.argv[2] === "install-hook") {
+    await import("./installHook.js");
+    process.exit(0);
+  }
 
   const diff = getStagedDiff();
   if (!diff || !diff.trim()) {

@@ -1,3 +1,5 @@
+//! systemPrompt
+//! userPrompt
 export const commitPrompt = (diff) => `
 You are an expert software engineer. Based on the staged git diff below, **ONLY** output a properly formatted commit message.  
 Do NOT repeat the rules, do not include the diff, do not ask questions, and do not output any extra text.
