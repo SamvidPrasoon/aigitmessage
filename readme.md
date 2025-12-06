@@ -43,7 +43,7 @@ This creates:
 ---
 
 🚀 Usage
-
+```bash
 Make changes:
 
 git add .
@@ -71,11 +71,12 @@ Git opens your editor → edit/accept the message
 Commit completes normally
 
 If AI fails, your commit still works.
-
+```
 ---
 
 🧠 AI Model (Ollama)
 
 Ensure Ollama is running:
-
+```bash
 ollama serve
+```
